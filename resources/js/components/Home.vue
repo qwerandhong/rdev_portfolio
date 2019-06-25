@@ -1,4 +1,5 @@
 <template>
+<div class="home-body">
     <section class="banner">
         <div class="container">
             <div class="row">
@@ -8,27 +9,40 @@
                 <h5> WEB / ANDROID Developer </h5>
             </div>
             <div class="row">
-                <button class="btn btn-lg btn-danger"><i class="fab fa-readme"></i> View Portfolio </button>  
-                <button class="btn btn-lg btn-secondary"> <i class="fas fa-id-card"></i> View Resume </button>
+                <button class="btn btn-lg btn-danger"  @click.prevent="viewPortfolio()"><i class="fab fa-readme"></i> View Portfolio </button> &nbsp  
+                <a class="btn btn-lg btn-secondary text-white" href="/images/Web Dev - CV only.pdf" target="_blank"> <i class="fas fa-id-card"></i> View Resume </a>
             </div>
         </div>
     </section>
+</div>
 </template>
 <script>
     export default {
-        mounted() {
-            console.log('Component mounted.')
-        }
+      methods: {
+          viewPortfolio(){
+              this.$router.push('/portfolio');
+          }
+      }
     }
 </script>
 <style scoped>
+.home-body{
+    background: url('/images/bg.jpg') no-repeat center center fixed;     
+    background-size: 100% auto;
+    margin: 0;
+    padding: 0;
+    z-index: 1;
+}
+
+@media screen and (max-width:800px) {
+  .home-body {
+    background-size: cover;
+    background-attachment:fixed }
+}
+
 .banner{
     position: relative;
-    background: url('/images/bg.jpg');
     min-height: 100vh;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
     padding: 250px 0 200px;
     justify-content: center;
 }
@@ -74,4 +88,11 @@
 }
 
 }
+
+nav li:hover,
+ nav li.router-link-active,
+ nav li.router-link-exact-active {
+   background-color: indianred;
+   cursor: pointer;
+ }
 </style>

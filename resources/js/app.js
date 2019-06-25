@@ -8,9 +8,19 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
-
+import Vue from 'vue'
+import VueSweetalert2 from 'vue-sweetalert2';
 import router from './routes.js'
 import store from './store.js'
+import Typed from 'typed.js'
+import Axios from 'axios'
+global.Typed = Typed;
+//SweetAlert2
+window.VueSweetalert2 = VueSweetalert2;
+Vue.use(VueSweetalert2);
+
+Vue.prototype.$axios = Axios;
+
 
 /**
  * The following block of code may be used to automatically register your
